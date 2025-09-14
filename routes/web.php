@@ -15,8 +15,11 @@ Route::get('/friends', function () {
     return view('friends.index', ["greeting" => "hello", "friends" => $friends]);
 });
 
-Route::get('/friends/{id}', function ($id) {
- 
+Route::get('/friends/create', function () {
+  return view('friends.create');
+});
 
+
+Route::get('/friends/{id}', function ($id) {
     return view('friends.show', ['id' => $id]);
 });
