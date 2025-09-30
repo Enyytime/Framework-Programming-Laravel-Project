@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Friends>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Dojo>
  */
-class FriendsFactory extends Factory
+class DojoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,9 @@ class FriendsFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'phone_number' => '08' . fake()->numerify('##########'), 
+            'name' => fake()->company(),
+            'location' => fake()->city(),
+            'description' => fake()->paragraph(10),
         ];
     }
 }
