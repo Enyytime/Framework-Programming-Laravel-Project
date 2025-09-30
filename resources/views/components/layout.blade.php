@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Network</title>
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   @vite('resources/css/app.css')
 </head>
-<body>
+<body class = "">
 
   <header>
     <nav>
       <h1>Friend Network</h1>
-      <a href="/friends"> 
+      <a href="{{ route('friends.index') }}"> 
         All Friends
       </a>
-      <a href="/friends/create"> {{-- does not exit yet --}}
+      <a href="{{ route('friends.create') }}"> {{-- does not exit yet --}}
         Create New friends
       </a>
     </nav>

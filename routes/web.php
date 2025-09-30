@@ -1,25 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\FriendController;
+ 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/friends', function () {
-    $friends = [
-    ["name" => "supanto", "no telp" => "0838 kapan kapan ke dufan", "id" => "1"],
-    ["name" => "suparman", "no telp" => "0838 males ke dufan", "id" => "2"]
-    ];
-
-    return view('friends.index', ["greeting" => "hello", "friends" => $friends]);
-});
-
-Route::get('/friends/create', function () {
-  return view('friends.create');
-});
-
-
-Route::get('/friends/{id}', function ($id) {
-    return view('friends.show', ['id' => $id]);
-});
+Route::get('/friends', [FriendController::class, 'index'])->name('friends.index');
+Route::get('/friends/create', [FriendController::class, 'create'])->name('friends.create');
+Route::get('/friends/{id}', [FriendController::class, 'show'])->name('friends.show');
