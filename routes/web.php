@@ -9,5 +9,6 @@ Route::get('/', function () {
 
 Route::get('/friends', [FriendController::class, 'index'])->name('friends.index');
 Route::get('/friends/create', [FriendController::class, 'create'])->name('friends.create');
-Route::get('/friends/{id}', [FriendController::class, 'show'])->name('friends.show');
+Route::get('/friends/{friend}', [FriendController::class, 'show'])->name('friends.show');
 Route::post('/friends', [FriendController::class, 'store'])->name('friends.store');
+Route::delete('/friends/{friend}', [FriendController::class, 'destroy'])->name('friends.destroy');

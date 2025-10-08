@@ -18,9 +18,9 @@ class FriendController extends Controller
       return view('friends.index', ['friends' => $friends]);
     }
 
-    public function show($id) {
+    public function show(Friend $friend) {
       // route --> /ninjas/{id}
-      $friend = Friend::with('dojo')->findOrFail($id);
+      $friend->load('dojo');
       return view('friends.show', ['friend' => $friend]);
     }
 
@@ -40,11 +40,14 @@ class FriendController extends Controller
       // hanlde POST request to store a new ninja record in table
         Friend::create($validated);
 
-        return redirect()->route('friends.index');
+        return redirect()->route('friends.index')->with('success', 'Friend created!');;
     }
 
-    public function destroy($id) {
+    public function destroy(Friend $friend) {
       // --> /ninjas/{id} (DELETE)
-      // handle delete request to delete a ninja record from table
+      // $friend = Friend::findOrFail($id);
+      $friend->delete();
+
+      return redirect()->route('friends.index')->with('success', 'Friend deleted!');;
     }
 }
